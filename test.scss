@@ -1,0 +1,16 @@
+$red:red;
+$yellow:yellow;
+
+.nav{
+    overflow:hidden;
+    ul{
+        li{
+            display:inline-block;
+            width:300px;
+            height:100px;
+        }
+        li:nth-child(2n){
+            color:blue;
+        }
+    }
+}

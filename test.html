@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="layer/skin/default/layer.css">
+    <link rel="stylesheet" type="" href="./layui/css/layui.css">
+
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .container {
+            width: 1200px;
+            height: 1000px;
+            margin: 250px auto;
+        }
+        
+        .btn {
+            width: 80px;
+            height: 40px;
+            display: inline-block;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 5px;
+            background: #ee3333;
+            color: #eee;
+        }
+        
+        .guanzhu {
+            position: relative;
+        }
+        
+        .guanzhu2 {
+            background: #eee;
+            color: #888;
+        }
+        
+        .main {
+            margin-left: 200px;
+        }
+        
+        .modal-delete {
+            width: 480px;
+            height: 400px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background: #fff;
+            border-radius: 5px;
+            display: block;
+            z-index: 1000;
+        }
+        
+        .closeBtn {
+            display: inline-block;
+            float: right;
+            width: 12px;
+            height: 40px;
+            margin-right: 10px;
+            background: url(../images/icons/delete.png) no-repeat 0 15px;
+            cursor: pointer;
+        }
+        
+        .modal .title {
+            line-height: 40px;
+            padding: 0 20px;
+            border-bottom: 1px solid #e33;
+            margin-bottom: 32px;
+        }
+        
+        .modal-row {
+            width: 280px;
+            height: 30px;
+            margin: 0 auto 26px;
+        }
+        
+        .modal-prompt {
+            padding-left: 10px;
+            color: #ff0000;
+            font-size: 12px;
+            display: none;
+        }
+        
+        .input-shu {
+            width: 280px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #e5e5e5;
+            box-shadow: 1px 1px 2px #c2c2c2 inset;
+            box-sizing: border-box;
+            padding-left: 10px;
+            font-size: 14px;
+            outline: none;
+        }
+        
+        .registerBtn {
+            width: 150px;
+            height: 40px;
+            display: inline-block;
+            background-color: #FF0023;
+            border: 0;
+            border-radius: 5px;
+            color: #fff;
+            margin: 0 19px 0 50px;
+        }
+        
+        input.phoneYan {
+            width: 180px;
+        }
+        
+        input.sendYan {
+            width: 90px;
+            height: 30px;
+            border: 0;
+            background-color: #eee;
+            cursor: pointer;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .row03 {
+            position: relative;
+        }
+        
+        .row03>b.yanzheng {
+            position: absolute;
+            width: 73px;
+            height: 26px;
+            right: 1px;
+            top: 2px;
+            background: url(../images/t-img/yan.png) no-repeat 0 0;
+            cursor: pointer;
+        }
+        
+        #findPasswordWin .modal-row.row04 {
+            padding-top: 0;
+        }
+        
+        #findPasswordWin .row05>a {
+            display: inline;
+        }
+        
+        .registerBtn:hover {
+            background-color: #C40202;
+        }
+        
+        div.row05>a {
+            display: inline-block;
+            font-size: 14px;
+            vertical-align: bottom;
+            color: #00469C;
+            text-decoration: none;
+        }
+        
+        .row05 {
+            width: 280px;
+            height: 36px;
+        }
+        
+        .box {
+            padding: 50px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .box h2 {
+            font-size: 24px;
+            margin-bottom: 50px;
+        }
+        .laydate_body .laydate_table thead th{
+            background:#15aafb;
+        }
+        .laydate_body .laydate_choose{
+            background:#15aafb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h2>TIPS样式</h2>
+            <div class="btn guanzhu">关注</div>
+        </div>
+
+        <div class="box">
+            <h2>弹出框</h2>
+            <div class="btn denglu">
+                登录
+            </div>
+        </div>
+
+        <div class="box">
+            <h2>下拉框</h2>
+            <div class="layui-form">
+                <div class="layui-inline">
+                    <select name="city" lay-verify="required">
+             <option value="">请选择一个城市</option>
+            <option value="010">北京</option>
+            <option value="021">上海</option>
+            <option value="0571">杭州</option>
+                     </select>
+                    <div class="layui-unselect layui-form-select">
+                        <div class="layui-select-title"><input type="text" placeholder="请选择一个城市" value="" readonly="" class="layui-input layui-unselect">
+                            <i class="layui-edge"></i>
+                        </div>
+                        <dl class="layui-anim layui-anim-upbit">
+                            <dd lay-value="010" class="">北京</dd>
+                            <dd lay-value="021" class="">上海</dd>
+                            <dd lay-value="0571" class="">杭州</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <select name="city" lay-verify="required">
+          <option value="">请选择一个城市</option>
+          <option value="010">北京</option>
+          <option value="021" disabled="">上海（禁用效果）</option>
+          <option value="0571" selected="">杭州</option>
+        </select>
+                    <div class="layui-unselect layui-form-select">
+                        <div class="layui-select-title"><input type="text" placeholder="请选择一个城市" value="杭州" readonly="" class="layui-input layui-unselect">
+                            <i class="layui-edge"></i>
+                        </div>
+                        <dl class="layui-anim layui-anim-upbit">
+                            <dd lay-value="010" class="">北京</dd>
+                            <dd lay-value="021" class=" layui-disabled">上海（禁用效果）</dd>
+                            <dd lay-value="0571" class="layui-this">杭州</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <select name="quiz">
+          <option value="">select分组</option>
+          <optgroup label="城市记忆">
+            <option value="你工作的第一个城市">你工作的第一个城市？</option>
+          </optgroup>
+          <optgroup label="学生时代">
+            <option value="你的工号">你的工号？</option>
+            <option value="你最喜欢的老师">你最喜欢的老师？</option>
+          </optgroup>
+        </select>
+                    <div class="layui-unselect layui-form-select">
+                        <div class="layui-select-title"><input type="text" placeholder="select分组" value="" readonly="" class="layui-input layui-unselect">
+                            <i class="layui-edge"></i>
+                        </div>
+                        <dl class="layui-anim layui-anim-upbit layui-select-group">
+                            <dt>城市记忆</dt>
+                            <dd lay-value="你工作的第一个城市" class="">你工作的第一个城市？</dd>
+                            <dt>学生时代</dt>
+                            <dd lay-value="你的工号" class="">你的工号？</dd>
+                            <dd lay-value="你最喜欢的老师" class="">你最喜欢的老师？</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <select name="city" lay-verify="required" lay-search="">
+          <option value="">带搜索的选择框</option>
+          <option value="1">layer</option>
+          <option value="2">form</option>
+          <option value="3">layim</option>
+          <option value="4">element</option>
+          <option value="5">laytpl</option>
+          <option value="6">upload</option>
+          <option value="7">laydate</option>
+          <option value="8">laypage</option>
+          <option value="9">flow</option>
+          <option value="10">util</option>
+          <option value="11">code</option>
+          <option value="12">tree</option>
+          <option value="13">layedit</option>
+          <option value="14">nav</option>
+          <option value="15">tab</option>
+          <option value="16">table</option>
+          <option value="17">select</option>
+          <option value="18">checkbox</option>
+          <option value="19">switch</option>
+          <option value="20">radio</option>
+        </select>
+                    <div class="layui-unselect layui-form-select">
+                        <div class="layui-select-title"><input type="text" placeholder="带搜索的选择框" value="" class="layui-input layui-unselect"><i class="layui-edge"></i></div>
+                        <dl class="layui-anim layui-anim-upbit">
+                            <dd lay-value="1" class="">layer</dd>
+                            <dd lay-value="2" class="">form</dd>
+                            <dd lay-value="3" class="">layim</dd>
+                            <dd lay-value="4" class="">element</dd>
+                            <dd lay-value="5" class="">laytpl</dd>
+                            <dd lay-value="6" class="">upload</dd>
+                            <dd lay-value="7" class="">laydate</dd>
+                            <dd lay-value="8" class="">laypage</dd>
+                            <dd lay-value="9" class="">flow</dd>
+                            <dd lay-value="10" class="">util</dd>
+                            <dd lay-value="11" class="">code</dd>
+                            <dd lay-value="12" class="">tree</dd>
+                            <dd lay-value="13" class="">layedit</dd>
+                            <dd lay-value="14" class="">nav</dd>
+                            <dd lay-value="15" class="">tab</dd>
+                            <dd lay-value="16" class="">table</dd>
+                            <dd lay-value="17" class="">select</dd>
+                            <dd lay-value="18" class="">checkbox</dd>
+                            <dd lay-value="19" class="">switch</dd>
+                            <dd lay-value="20" class="">radio</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <h2>123</h2>
+            <div class="layui-inline">
+                <input class="layui-input" placeholder="自定义日期格式" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+            </div>
+            <div class="layui-inline">
+                <input class="layui-input" placeholder="开启节日" onclick="layui.laydate({elem: this, festival: true})">
+            </div>
+            <div class="layui-inline">
+                <input class="layui-input" placeholder="只能选昨天到明天" onclick="layui.laydate({elem: this, min: laydate.now(-1), max: laydate.now(+1)})">
+            </div>
+
+        </div>
+        <div class="box">
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>水平导航菜单</legend>
+            </fieldset>
+
+            <ul class="layui-nav">
+                <li class="layui-nav-item"><a href="">最新活动</a></li>
+                <li class="layui-nav-item layui-this">
+                    <a href="javascript:;">产品</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">选项1</a></dd>
+                        <dd><a href="">选项2</a></dd>
+                        <dd><a href="">选项3</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">大数据</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">解决方案</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">移动模块</a></dd>
+                        <dd><a href="">后台模版</a></dd>
+                        <dd class="layui-this"><a href="">选中项</a></dd>
+                        <dd><a href="">电商平台</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">社区</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+
+
+</body>
+<script src="jquery-3.2.0.min.js"></script>
+<script src="./layer/layer.js"></script>
+<script>
+                                                                           $(document).on('mouseover', '.guanzhu', function () {
+
+                                                                               layer.tips('未关注，点击关注', this, {
+                                                                                   tips: [1, '#15aafb'],
+                                                                                   time: 2000
+                                                                               });
+                                                                           });
+                                                                           $(document).on('mouseover', '.guanzhu2', function () {
+                                                                               layer.tips('已关注，点击取消关注', this, {
+                                                                                   tips: [1, '#15aafb'],
+                                                                                   time: 2000
+                                                                               });
+                                                                           })
+
+
+                                                                           $('.btn').click(function () {
+                                                                               if ($(this).hasClass('guanzhu')) {
+                                                                                   $(this).removeClass('guanzhu').addClass('guanzhu2');
+                                                                               }
+                                                                               else if ($(this).hasClass('guanzhu2')) {
+                                                                                   $(this).removeClass('guanzhu2').addClass('guanzhu');
+                                                                               }
+                                                                           })
+                                                                           $(document).on('click', '.denglu', function () {
+                                                                               layer.open({
+                                                                                   type: 1,
+                                                                                   //skin: 'layui-layer-rim', //加上边框
+                                                                                   area: ['480px', '400px'], //宽高
+                                                                                   content: `<div class="modal fz14" id="loginWin" style="display: block;">
+    <div class="modal-delete">
+        <div class="title">
+            <span>登录</span>
+            <b class="closeBtn"></b>
+        </div>
+        <div class="modal-row row01">
+            <input type="text" class="input-shu phone" placeholder="请输入您的手机号" id="usernameLogin"><div id="d_regUsername" style="position :absolute;left:02;top:322;color:#ff0000;font-size:12px;"><div class="modal-prompt">手机号格式不对</div></div><div id="d_regUsername" style="position :absolute;left:02;top:322;color:#ff0000;font-size:12px;"><div class="modal-prompt">手机号格式不对</div></div>
+
+        </div>
+        <div class="modal-row row02">
+            <input type="password" class="input-shu psw" placeholder="请输入密码" id="passwordLogin"><div id="d_passwordReg" style="position :absolute;left:02;top:322;color:#ff0000;font-size:12px;"><div class="modal-prompt">密码错误</div></div><div id="d_passwordReg" style="position :absolute;left:02;top:322;color:#ff0000;font-size:12px;"><div class="modal-prompt">密码错误</div></div>
+
+        </div>
+        <div class="modal-row row03">
+            <input type="text" class="input-shu yan" placeholder="请输入验证码" id="imgCodeLogin"><div id="d_imgCodeReg" style="position :absolute;left:02;top:322;color:#ff0000;font-size:12px;"><div class="modal-prompt">验证码错误</div></div><div id="d_imgCodeReg" style="position :absolute;left:02;top:322;color:#ff0000;font-size:12px;"><div class="modal-prompt">验证码错误</div></div>
+           
+
+        </div>
+    
+    </div>
+</div>`
+                                                                               });
+                                                                           })
+
+</script>
+<script src="./layui/lay/dest/layui.all.js"></script>
+
+</html>
