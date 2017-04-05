@@ -34,12 +34,16 @@
         }
         
         .guanzhu {
-            position: relative;
+            position: relativ  e;
+            transition:0.2s;
+            user-select: none;
         }
         
         .guanzhu2 {
             background: #eee;
             color: #888;
+            transition:0.2s;
+            user-select: none;
         }
         
         .main {
@@ -416,7 +420,9 @@
 </div>`
                                                                                });
                                                                            })
-
+$(document).ready(
+    layer.msg("请勾选同意协议",{time:2000000})
+)
 </script>
 <script src="./layui/lay/dest/layui.all.js"></script>
 
